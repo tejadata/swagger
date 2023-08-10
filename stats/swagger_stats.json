@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Statistics",
+    "version": "1.0.0",
+    "description": "List of APIs for stats"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:5003",
+      "description": "dev server (uses live data)"
+    },
+    {
+      "url": "http://127.0.0.1:5003",
+      "description": "prod server"
+    }
+  ],
+  "paths": {
+    "/mean": {
+      "post": {
+        "tags": [
+          "stats"
+        ],
+        "summary": "average",
+        "description": "Will find average of two values",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "a": 1,
+                  "b": 2
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/mode": {
+      "post": {
+        "tags": [
+          "stats"
+        ],
+        "summary": "mode",
+        "description": "will find frequent occurence",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "a": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    4,
+                    5
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
